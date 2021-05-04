@@ -1,0 +1,12 @@
+.book-item {
+  margin-right: 5px;
+}
+
+.book-label {
+  margin: 0 5px 0;
+  font-weight: bold;
+}
+
+.btn-color-del {
+  background-color: indianred;
+}

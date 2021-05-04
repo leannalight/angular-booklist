@@ -1,0 +1,12 @@
+<div>
+  <label class="book-label">Author:</label>
+  <span style="word-break: break-all" class="book-item">{{ book.author }}</span>
+  <label class="book-label">Title:</label>
+  <span style="word-break: break-all" class="book-item">{{ book.title }}</span>
+  <a href="" class="btn btn-primary" [routerLink]="['/edit', book.id]" >
+    Edit
+  </a>&nbsp;
+  <button class="btn btn-danger btn-color-del" (click)="onDelete()">
+    Remove
+  </button>&nbsp;
+</div>

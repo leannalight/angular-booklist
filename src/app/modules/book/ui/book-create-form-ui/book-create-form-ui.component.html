@@ -1,0 +1,57 @@
+<div class="row my-4">
+  <div class="col-md-12">
+    <h3 class="h3-color">Add Book</h3>
+    <hr />
+    <form [formGroup]="bookForm" novalidate (ngSubmit)="onCreate()">
+      <div class="mb-3">
+          <label>Author</label>
+          <input class="form-control" type="text" formControlName="author" />
+
+          <div class="alert alert-danger"
+              *ngIf="bookForm.controls['author'].invalid && bookForm.controls['author'].touched">
+              Author is required
+          </div>
+      </div>
+      <div class="mb-3">
+          <label>Year</label>
+          <input class="form-control" type="text" formControlName="year" />
+
+          <div class="alert alert-danger"
+              *ngIf="bookForm.controls['year'].invalid && bookForm.controls['year'].touched">
+              Incorrect year format
+          </div>
+      </div>
+      <div class="mb-3">
+          <label>Title</label>
+          <input class="form-control" type="text" formControlName="title" />
+          <div class="alert alert-danger"
+              *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched">
+              Title is required
+          </div>
+      </div>
+      <div class="mb-3">
+        <label>Pages</label>
+        <input class="form-control" type="text" formControlName="pages" />
+        <div class="alert alert-danger"
+            *ngIf="bookForm.controls['pages'].invalid && bookForm.controls['pages'].touched">
+            Incorrect pages format
+        </div>
+      </div>
+      <div class="mb-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="bookForm.invalid">
+            Add to list
+          </button>
+      </div>
+      <div>
+        <a href="#" class="btn btn-primary" [routerLink]="['/']">
+          Go back to list
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+

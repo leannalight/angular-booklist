@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8">
+    <div>
+      <a href="#" class="btn btn-primary" [routerLink]="['/add']">
+        Add Book
+      </a>
+    </div>
+    <ul>
+      <li *ngFor="let book of bookList">
+        <app-book-list-item-ui *ngIf="!editIds.includes(book.id)"
+                                [book]="book"
+                                (delete)="onDelete(book.id)"
+                                (edit)="onEditMode(book.id)"
+        ></app-book-list-item-ui>
+        <app-book-list-item-edit-ui *ngIf="editIds.includes(book.id)"
+                                    [book]="book"
+                                    (edit)="onEdit($event, book.id)"
+        ></app-book-list-item-edit-ui>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
