@@ -5,7 +5,7 @@ export enum bookActionsType {
   create = '[BOOK] create book item',
   edit = '[BOOK] edit book item',
   delete = '[BOOK] delete book item',
-  load = '[BOOK] load book state',
+  load = '[BOOK] load book state'
 }
 
 export class BookCreateAction implements Action {

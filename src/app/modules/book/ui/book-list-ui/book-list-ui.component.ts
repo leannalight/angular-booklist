@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../../model/book';
+import { Observable } from 'rxjs';
+import { Router } from'@angular/router';
+import { select, Store } from '@ngrx/store';
+import { BookState } from '../../store/book/book.reducer';
+import { BookSyncStorageService } from '../../service/book-sync-storage.service';
 
 @Component({
   selector: 'app-book-list-ui',
@@ -18,7 +23,11 @@ export class BookListUiComponent implements OnInit {
   @Output()
   edit = new EventEmitter<{ id: number, author: string, year: number, title: string, pages: number }>();
 
-  constructor() { }
+  constructor(
+    private store$: Store<BookState>,
+    private bookSyncStorage: BookSyncStorageService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }

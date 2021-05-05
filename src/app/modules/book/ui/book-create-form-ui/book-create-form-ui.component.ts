@@ -5,6 +5,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BookState } from '../../store/book/book.reducer';
 
+import { ActivatedRoute } from '@angular/router';
+import { BookSyncStorageService } from '../../service/book-sync-storage.service';
+
 @Component({
   selector: 'app-book-create-form-ui',
   templateUrl: './book-create-form-ui.component.html',
@@ -16,7 +19,9 @@ export class BookCreateFormUiComponent implements OnInit {
   @Output()
   create = new EventEmitter<string>();
 
-  constructor(private store: Store<BookState>) { }
+  constructor(private store: Store<BookState>,
+              private route: ActivatedRoute,
+              private bookSyncStorage: BookSyncStorageService) { }
 
   ngOnInit(): void {
     this.bookForm = new FormGroup({

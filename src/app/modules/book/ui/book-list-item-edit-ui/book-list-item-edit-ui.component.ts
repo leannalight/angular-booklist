@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Book } from '../../model/book';
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { BookState } from '../../store/book/book.reducer';
 import { Subscription } from 'rxjs';
 import { getBookById } from '../../store/book/book.selectors';
@@ -14,8 +14,8 @@ import { getBookById } from '../../store/book/book.selectors';
   styleUrls: ['./book-list-item-edit-ui.component.css'],
 })
 export class BookListItemEditUiComponent implements OnInit {
-  bookForm: FormGroup;
   book: Book;
+  bookForm: FormGroup;
   bookSubscription: Subscription;
 
   // @Input()
@@ -35,7 +35,7 @@ export class BookListItemEditUiComponent implements OnInit {
           author: book.author,
           year: book.year,
           title: book.title,
-          pages: book.pages,
+          pages: book.pages
         });
       }
     });
@@ -82,7 +82,7 @@ export class BookListItemEditUiComponent implements OnInit {
 
     //dispatch the action
     this.store.dispatch(new BookEditAction(book));
-    this.router.navigate(['../../']), { relativeTo: this.router };
+    this.router.navigate(['']);
   }
 
   ngOnDestroy() {

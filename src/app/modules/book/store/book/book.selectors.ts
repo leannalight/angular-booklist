@@ -7,6 +7,7 @@ export const bookListSelector = createSelector(
   bookFeatureSelector,
   state => state.bookList
 );
+
 export const getBookById = createSelector(
   bookFeatureSelector,
   bookListSelector,
